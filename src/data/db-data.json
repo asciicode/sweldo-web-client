@@ -1,0 +1,63 @@
+
+
+employee: {
+  id: 0,
+  first_name: '',
+  surname: '',
+  job_description: '',
+  rate: 0,
+  otmultiplier: 0, /* ??? maybe to elements in the future */
+  sss: 0,
+  philhealth: 0  
+}
+
+payroll: {
+  id: 0
+  payroll_number: 0,
+  payroll_status: '',
+  overtime: false
+}
+
+payroll_employee: {
+  id: 0
+  payroll_id: many to 1
+  employee_id: many to 1
+  employee_rate: 0,
+  employee_otmultiplier: 0
+  employee_sss: '',
+  employee_philhealth: ''
+}
+
+payroll_employee_transaction: {
+  payroll_employee: many to 1
+  pay_element: many to 1
+  qty: 0 
+
+}
+
+
+
+pay_element: {
+  code: '',
+  description: '', 
+  type: '', /* ot or ordinary, remaining pay  */
+  group: pay_element_group_id, /* payment or deduction */
+  calculation_rule: ???,
+  multiplier: 1.0,
+  rate: ???,
+  value: ???
+}
+
+
+/* FUTURE USE */
+pay_element_group: {
+  /* payment or deduction */
+}
+
+payment_element: {
+  payment_type : ''/* ot or ordinary  */
+}
+
+deduction_element: {
+  deduction_type: '' /* subsidy[sss/philhealth], remaining pay */
+}
