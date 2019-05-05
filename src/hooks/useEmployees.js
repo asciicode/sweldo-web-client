@@ -34,7 +34,9 @@ const employeeActionTypes = {
   LIST: "list"
 };
 
-export function useEmployees() {
+export function useEmployees(orgId) {
+  // console.log(orgId);
+
   // const [state, dispatch] = React.useReducer(employeesReducer, []);
   const [employees, setEmployees] = React.useState([]);
   const [errors, setErrors] = React.useState();
@@ -49,7 +51,7 @@ export function useEmployees() {
       })
       .catch(error => {
         // dispatch({ type: employeeActionTypes.ADD, payload: { ...form } });
-        console.log(error.response.data, error.response.data.errorFields);
+        // console.log(error.response.data, error.response.data.errorFields);
         if (error.response.data && error.response.data.errorFields) {
           setErrors({ ...error.response.data.errorFields });
         }
@@ -78,7 +80,7 @@ export function useEmployees() {
       })
       .catch(error => {
         // dispatch({ type: employeeActionTypes.ADD, payload: { ...form } });
-        console.log(error.response.data, error.response.data.errorFields);
+        // console.log(error.response.data, error.response.data.errorFields);
         if (error.response.data && error.response.data.errorFields) {
           setErrors({ ...error.response.data.errorFields });
         }

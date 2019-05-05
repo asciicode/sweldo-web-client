@@ -97,7 +97,7 @@ function Employee(props) {
     editEmployee,
     listEmployee,
     clearErrors
-  ] = useEmployees();
+  ] = useEmployees(props.match.params.orgId);
 
   const { classes } = props;
   // console.log("Employee render ", props);
