@@ -15,7 +15,7 @@ import EmployeeDialog from "./common/EmployeeDialog";
 import { Add } from "@material-ui/icons";
 import { CustomTableCell } from "./common/CustomTableCell";
 import { employeeRowEmpty } from "../data/payroll";
-import { useEmployees } from "../hooks/useEmployees";
+import { useEmployee } from "../hooks/useEmployee";
 import Swelbar from "./layout/Swelbar";
 // import axios from "axios";
 
@@ -92,17 +92,19 @@ function Employee(props) {
   const [
     state,
     errors,
+    open,
     addEmployee,
     deleteEmployee,
     editEmployee,
     listEmployee,
-    clearErrors
-  ] = useEmployees(props.match.params.orgId);
+    clearErrors,
+    setOpen
+  ] = useEmployee(props.match.params.orgId);
 
   const { classes } = props;
   // console.log("Employee render ", props);
   const [employee, setEmployee] = React.useState(employeeRowEmpty);
-  const [open, setOpen] = React.useState(false);
+  // const [open, setOpen] = React.useState(false);
   const handleToggle = () => {
     setOpen(!open);
     console.log("handleToggle ", !open);
@@ -146,10 +148,7 @@ function Employee(props) {
   React.useEffect(() => {
     listEmployee();
   }, []);
-  React.useEffect(() => {
-    console.log(errors);
-    setOpen(errors !== undefined);
-  }, [state]);
+
   console.log("employee list ", state, errors);
 
   return (
