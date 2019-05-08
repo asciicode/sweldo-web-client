@@ -2,7 +2,7 @@
 
 employee: {
   id: 0,
-  first_name: '',
+  first_names: '',
   surname: '',
   job_description: '',
   rate: 0,
@@ -61,3 +61,36 @@ payment_element: {
 deduction_element: {
   deduction_type: '' /* subsidy[sss/philhealth], remaining pay */
 }
+
+
+------------------ sweldo logic flow --------------------------
+sweldo status - open, confirm, closed?
+sweldo - open
+
+no last payroll - stay this page
+view
+date picker 
+table of possible employees 
+
+if have last payroll and confirm current payroll - go to confirm payroll page
+pick up last payroll employees
+validate date 
+
+if have last payroll and open current payroll 
+pickup current payroll date - validate date
+payroll employees
+
+sweldo - entry
+no last payroll - go to open payroll page
+if have last payroll and open current payroll - stay this page
+if have last payroll and confirm current payroll - to to confirm payroll page
+
+sweldo - confirm
+no last payroll - go to open payroll page
+
+if have last payroll and open current payroll - go to entry payroll page
+
+if have last payroll and confirm current payroll - stay this page
+table current payroll employees
+
+unconfirm button 
